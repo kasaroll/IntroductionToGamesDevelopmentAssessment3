@@ -3,20 +3,20 @@ guid: 84734090ca6094cb9a65381e769aaef9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4862849649312915832
-    second: LevelGenerator_0
+      213: -1445411116598463248
+    second: Levelgenerator_0
   - first:
-      213: -4701505108088421911
-    second: LevelGenerator_1
+      213: 2203622113374654548
+    second: Levelgenerator_1
   - first:
-      213: 6984152552360150625
-    second: LevelGenerator_2
+      213: 4300105150983477048
+    second: Levelgenerator_2
   - first:
-      213: -4368440459757660560
-    second: LevelGenerator_3
+      213: -5185092716528938443
+    second: Levelgenerator_3
   - first:
-      213: 4099412824909791686
-    second: LevelGenerator_4
+      213: 5380628416328567215
+    second: Levelgenerator_4
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -101,106 +101,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LevelGenerator_0
+      name: Levelgenerator_0
       rect:
         serializedVersion: 2
-        x: 34
-        y: 292
+        x: 28
+        y: 298
         width: 58
         height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88e12982200b38cb0800000000000000
-      internalID: -4862849649312915832
+      spriteID: 0f47fb06f3ed0fbe0800000000000000
+      internalID: -1445411116598463248
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LevelGenerator_1
+      name: Levelgenerator_1
       rect:
         serializedVersion: 2
-        x: 162
-        y: 306
+        x: 163
+        y: 291
         width: 58
-        height: 28
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9e184ba8306e0ceb0800000000000000
-      internalID: -4701505108088421911
+      spriteID: 45054e603a6d49e10800000000000000
+      internalID: 2203622113374654548
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LevelGenerator_2
+      name: Levelgenerator_2
       rect:
         serializedVersion: 2
-        x: 40
-        y: 168
-        width: 48
-        height: 48
+        x: 34
+        y: 164
+        width: 58
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 16680942eb1bce060800000000000000
-      internalID: 6984152552360150625
+      spriteID: 83792351ada0dab30800000000000000
+      internalID: 4300105150983477048
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LevelGenerator_3
+      name: Levelgenerator_3
       rect:
         serializedVersion: 2
-        x: 188
-        y: 168
-        width: 8
-        height: 48
+        x: 163
+        y: 163
+        width: 58
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 07653bdfb8e2063c0800000000000000
-      internalID: -4368440459757660560
+      spriteID: 532d3d765a9da08b0800000000000000
+      internalID: -5185092716528938443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LevelGenerator_4
+      name: Levelgenerator_4
       rect:
         serializedVersion: 2
         x: 35
         y: 35
-        width: 59
-        height: 59
+        width: 58
+        height: 58
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c1cd60ae3a04e830800000000000000
-      internalID: 4099412824909791686
+      spriteID: fa903af6905dbaa40800000000000000
+      internalID: 5380628416328567215
       vertices: []
       indices: 
       edges: []

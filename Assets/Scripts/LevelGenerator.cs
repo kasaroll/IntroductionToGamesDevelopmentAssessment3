@@ -115,6 +115,11 @@ public class LevelGenerator : MonoBehaviour
                         {
                             Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
                         }
+                        // to the left, below and above
+                        else if (y != 0 && x < 14 && levelMap[x, y - 1] == 4 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 4)
+                        {
+                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 270)));
+                        }
                         // to the left and above
                         else if (x != 0 && y != 0 && levelMap[x, y - 1] == 4 && levelMap[x - 1, y] == 4)
                         {
@@ -147,6 +152,25 @@ public class LevelGenerator : MonoBehaviour
                         {
                             Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 270)));
                         }
+                        // to the right and below
+                        else if (x < 14 && y < 13 && levelMap[x, y + 1] == 3 && levelMap[x + 1, y] == 4)
+                        {
+                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                        }
+                        // to the right and above
+                        else if (x < 14 && y < 13 && levelMap[x, y + 1] == 3 && levelMap[x - 1, y] == 4)
+                        {
+                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                        }
+                        // to the left and above
+                        else if (x < 14 && y < 13 && levelMap[x, y - 1] == 3 && levelMap[x - 1, y] == 4)
+                        {
+                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                        }
+                        else if (x != 0 && levelMap[x - 1, y] == 4)
+                        {
+                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                        }
                         position.x++;
                         checkNextLine();
                         break;
@@ -171,10 +195,26 @@ public class LevelGenerator : MonoBehaviour
                         {
                             Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         }
-                        //else if (levelMap[x, y - 1] == 4)
-                        //{
-                        //    Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        //}
+                        else if (x != 0 && x < 14 && levelMap[x + 1, y] == 3 && levelMap[x - 1, y] == 4)
+                        {
+                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                        }
+                        else if (x != 0 && x < 14 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 3)
+                        {
+                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                        }
+                        else if (x != 0 && x < 14 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 7)
+                        {
+                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                        }
+                        else if (levelMap[x, y - 1] == 4)
+                        {
+                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
+                        }
+                        else if (x != 0 && levelMap[x - 1, y] == 4)
+                        {
+                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
+                        }
                         position.x++;
                         checkNextLine();
                         break;
@@ -189,7 +229,7 @@ public class LevelGenerator : MonoBehaviour
                         checkNextLine();
                         break;
                     case 7:
-                        Instantiate(tJunctionPiece, position, Quaternion.Euler(new Vector3(0, 180, 0)));
+                        Instantiate(tJunctionPiece, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         position.x++;
                         checkNextLine();
                         break;

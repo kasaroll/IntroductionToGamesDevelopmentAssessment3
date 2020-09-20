@@ -37,181 +37,95 @@ public class LevelGenerator : MonoBehaviour
         {
             for (int y = 0; y < 14; y++)
             {
-                switch (levelMap[x,y]) {
+                switch (levelMap[x, y]) {
                     case 0:
                         position.x++;
                         checkNextLine();
                         break;
                     case 1:
-                        if (x == 0 && levelMap[x + 1, y] == 2)
+                        if (x == 0 && levelMap[x + 1, y] == 2) // first piece and outsideWall is below
                         {
                             position.x += 0.5f;
                             Instantiate(outsideCorner, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         }
-                        else if (levelMap[x + 1, y] == 2)
-                        {
-                            Instantiate(outsideCorner, position, Quaternion.Euler(new Vector3(0, 0, -90)));
-                        }
-                        else if (levelMap[x, y + 1] == 2)
+                        else if (levelMap[x, y + 1] == 2) // outsideWall is to the right
                         {
                             Instantiate(outsideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
                         }
-                        else if (levelMap[x - 1, y] == 2)
+                        else if (levelMap[x - 1, y] == 2) // outsideWall is above
                         {
                             Instantiate(outsideCorner, position, Quaternion.Euler(new Vector3(0, 0, 180)));
+                        }
+                        else if (levelMap[x + 1, y] == 2) // outsideWall below
+                        {
+                            Instantiate(outsideCorner, position, Quaternion.Euler(new Vector3(0, 0, 270)));
                         }
                         position.x++;
                         checkNextLine();
                         break;
                     case 2:
-                        Debug.Log(x + " " + y);
-                        if (y != 0 && levelMap[x, y - 1] == 1 && levelMap[x + 1, y] == 5)
+                        if (y != 0 && levelMap[x, y - 1] == 1 && levelMap[x + 1, y] == 5 || // outsideCorner is to the left and standardPellet is below
+                            y != 0 && levelMap[x, y - 1] == 1 && levelMap[x - 1, y] == 5 || // outsideCorner is to the left and standardPellet is above
+                            y != 0 && levelMap[x, y - 1] == 2 && levelMap[x, y + 1] == 2 || // outsideWall is to the left and outsideWall is to the right
+                            y != 0 && levelMap[x, y - 1] == 2 && levelMap[x, y + 1] == 7 || // outsideWall is to the left and TJunction is to the right
+                            y != 0 && levelMap[x, y - 1] == 2 && levelMap[x, y + 1] == 1 || // outsideWall is to the left and outsideCorner is to the right
+                                      levelMap[x, y + 1] == 2)                              // outsideWall is to the right   
                         {
                             Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         }
-                        else if (y != 0 && levelMap[x, y - 1] == 1 && levelMap[x - 1, y] == 5)
-                        {
-                            Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (y != 0 && levelMap[x, y - 1] == 2 && levelMap[x, y + 1] == 2)
-                        {
-                            Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (y != 0 && levelMap[x, y - 1] == 2 && levelMap[x, y + 1] == 7)
-                        {
-                            Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (y != 0 && levelMap[x, y - 1] == 2 && levelMap[x, y + 1] == 1)
-                        {
-                            Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (x != 0 && levelMap[x - 1, y] == 2 && levelMap[x + 1, y] == 2)
+                        else if (x != 0 && levelMap[x - 1, y] == 2 && levelMap[x + 1, y] == 2 || // outsideWall is above and outsideWall is below
+                                 x != 0 && levelMap[x - 1, y] == 2 && levelMap[x + 1, y] == 1 || // outsideWall is above and outsideCorner is below
+                                           levelMap[x - 1, y] == 1 && levelMap[x + 1, y] == 2)   // outsideCorner is above and outsideWall is below
                         {
                             Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (x != 0 && levelMap[x - 1, y] == 2 && levelMap[x + 1, y] == 1)
-                        {
-                            Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (levelMap[x - 1, y] == 1 && levelMap[x + 1, y] == 2)
-                        {
-                            Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (levelMap[x, y + 1] == 2)
-                        {
-                            Instantiate(outsideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         }
                         position.x++;
                         checkNextLine();
                         break;
                     case 3:
-                        // to the right and below
-                        if (x < 14 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x + 1, y] == 4)
+                        if (x < 14 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x + 1, y] == 4 ||                            // insideWall is to the right and insideWall is below
+                            x < 14 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x + 1, y] == 3 && levelMap[x - 1, y] == 5 || // insideWall is to the right, insideCorner is below and standardPellet is above
+                            x < 14 && y < 13 && levelMap[x, y + 1] == 3 && levelMap[x + 1, y] == 4)                              // insideCorner is to the right and insideWall is below
                         {
                             Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         }
-                        // to the right and above
-                        else if (x != 0 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x - 1, y] == 4)
+                        else if (x != 0 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x - 1, y] == 4 || // insideWall is to the right and insideWall is above
+                                 x != 0 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x - 1, y] == 3 || // insideWall is to the right and insideCorner is above
+                                 x < 14 && y < 13 && levelMap[x, y + 1] == 3 && levelMap[x - 1, y] == 4)   // insideCorner is to the right and insideWall is above
                         {
                             Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
                         }
-                        // to the left, below and above
-                        else if (y != 0 && x < 14 && levelMap[x, y - 1] == 4 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 4)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 270)));
-                        }
-                        // to the left and above
-                        else if (x != 0 && y != 0 && levelMap[x, y - 1] == 4 && levelMap[x - 1, y] == 4)
+                        else if (x != 0 && y != 0 && levelMap[x, y - 1] == 4 && levelMap[x - 1, y] == 4 && levelMap[x + 1, y] == 5 || // insideWall is to the left, insideWall is above and standardPellet is below
+                                 x != 0 && y != 0 && levelMap[x, y - 1] == 4 && levelMap[x - 1, y] == 3 ||                            // insideWall is to the left and insideCorner is above
+                                 x < 14 && y < 13 && levelMap[x, y - 1] == 3 && levelMap[x - 1, y] == 4)                              // insideCorner is to the left and insideWall is above
                         {
                             Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 180)));
                         }
-                        // to the left and below
-                        else if (y != 0 && x < 14 && levelMap[x, y - 1] == 4 && levelMap[x + 1, y] == 4)
+                        else if (y != 0 && x < 14 && levelMap[x, y - 1] == 4 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 4 || // insideWall is to the left, insideWall is below and insideWall is above
+                                 y != 0 && x < 14 && levelMap[x, y - 1] == 4 && levelMap[x + 1, y] == 4 ||                            // insideWall is to the left, insideWall is below
+                                 y != 0 && x < 14 && levelMap[x, y - 1] == 4 && levelMap[x + 1, y] == 3 ||                            // insideWall is to the left, insideCorner is below
+                                 y != 0 && x < 14 && levelMap[x, y - 1] == 3 && levelMap[x + 1, y] == 4)                              // insideCorner is to the left, insideWall is below
                         {
                             Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 270)));
-                        }
-                        else if (x < 14 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x + 1, y] == 3)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (x != 0 && y < 13 && levelMap[x, y + 1] == 4 && levelMap[x - 1, y] == 3)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (x != 0 && y != 0 && levelMap[x, y - 1] == 4 && levelMap[x - 1, y] == 3)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 180)));
-                        }
-                        // to the left and below
-                        else if (y != 0 && x < 14 && levelMap[x, y - 1] == 4 && levelMap[x + 1, y] == 3)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 270)));
-                        }
-                        // to the left and below
-                        else if (y != 0 && x < 14 && levelMap[x, y - 1] == 3 && levelMap[x + 1, y] == 4)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 270)));
-                        }
-                        // to the right and below
-                        else if (x < 14 && y < 13 && levelMap[x, y + 1] == 3 && levelMap[x + 1, y] == 4)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        // to the right and above
-                        else if (x < 14 && y < 13 && levelMap[x, y + 1] == 3 && levelMap[x - 1, y] == 4)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        // to the left and above
-                        else if (x < 14 && y < 13 && levelMap[x, y - 1] == 3 && levelMap[x - 1, y] == 4)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 180)));
-                        }
-                        else if (x != 0 && levelMap[x - 1, y] == 4)
-                        {
-                            Instantiate(insideCorner, position, Quaternion.Euler(new Vector3(0, 0, 90)));
                         }
                         position.x++;
                         checkNextLine();
                         break;
                     case 4:
-                        if (x != 0 && x < 14 && levelMap[x - 1, y] == 4 && levelMap[x + 1, y] == 4)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (x != 0 && x < 14 && levelMap[x - 1, y] == 3 && levelMap[x + 1, y] == 3)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (levelMap[x, y - 1] == 3 && levelMap[x, y + 1] == 4)
+                        if (levelMap[x, y - 1] == 3 && levelMap[x, y + 1] == 4 ||                     // insideCorner is to the left and insideWall is to the right
+                            y != 0 && y < 13 && levelMap[x, y - 1] == 4 && levelMap[x, y + 1] == 3 || // insideWall is to the left and insideCorner is to the right
+                            y != 0 && y < 13 && levelMap[x, y - 1] == 4 && levelMap[x, y + 1] == 4 || // insideWall is to the left and insideWall is to the right
+                            levelMap[x, y - 1] == 4 && levelMap[x - 1, y] == 5 ||                     // insideWall is to the left and standardPellet is above
+                            levelMap[x, y - 1] == 4 && levelMap[x - 1, y] == 0)                       // insideWall is to the left and empty is above
                         {
                             Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         }
-                        else if (y != 0 && y < 13 && levelMap[x, y - 1] == 4 && levelMap[x, y + 1] == 3)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (y != 0 && y < 13 && levelMap[x, y - 1] == 4 && levelMap[x, y + 1] == 4)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (x != 0 && x < 14 && levelMap[x + 1, y] == 3 && levelMap[x - 1, y] == 4)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (x != 0 && x < 14 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 3)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (x != 0 && x < 14 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 7)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
-                        }
-                        else if (levelMap[x, y - 1] == 4)
-                        {
-                            Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 0)));
-                        }
-                        else if (x != 0 && levelMap[x - 1, y] == 4)
+                        else if (x != 0 && x < 14 && levelMap[x - 1, y] == 4 && levelMap[x + 1, y] == 4 || // insideWall is above and insideWall is below
+                                 x != 0 && x < 14 && levelMap[x - 1, y] == 3 && levelMap[x + 1, y] == 3 || // insideCorner is above and insideCorner is below
+                                 x != 0 && x < 14 && levelMap[x + 1, y] == 3 && levelMap[x - 1, y] == 4 || // insideCorner is below and insideWall is above
+                                 x != 0 && x < 14 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 3 || // insideWall is below and insideCorner is above
+                                 x != 0 && x < 14 && levelMap[x + 1, y] == 4 && levelMap[x - 1, y] == 7 || // insideWall is below and TJunction is above
+                                 x != 0 && levelMap[x - 1, y] == 4)                                        // insideWall is below
                         {
                             Instantiate(insideWall, position, Quaternion.Euler(new Vector3(0, 0, 90)));
                         }
@@ -219,12 +133,12 @@ public class LevelGenerator : MonoBehaviour
                         checkNextLine();
                         break;
                     case 5:
-                        Instantiate(standardPellet, position, Quaternion.Euler(new Vector3(0, 180, 0)));
+                        Instantiate(standardPellet, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         position.x++;
                         checkNextLine();
                         break;
                     case 6:
-                        Instantiate(powerPellet, position, Quaternion.Euler(new Vector3(0, 180, 0)));
+                        Instantiate(powerPellet, position, Quaternion.Euler(new Vector3(0, 0, 0)));
                         position.x++;
                         checkNextLine();
                         break;
@@ -234,11 +148,6 @@ public class LevelGenerator : MonoBehaviour
                         checkNextLine();
                         break;
                 }
-                //if (levelMap[x,y] == 1)
-                //{
-                //    Instantiate(outsideCorner, position, new Quaternion(0.0f, 180.0f, 0.0f, 0.0f));
-                //    position.x++;
-                //} 
             }
         }
     }

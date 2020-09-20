@@ -23,6 +23,11 @@ public class LevelGenerator : MonoBehaviour
         {0,0,0,0,0,0,5,0,0,0,4,0,0,0},
     };
 
+    private Vector2 intitialPos = new Vector2(0.0f, 0.0f);
+
+    [SerializeField]
+    private Sprite outsideCorner, outsideWall, insideCorner, insideWall, standardPellet, powerPellet, tJunctionPiece;
+
     // Start is called before the first frame update
     void Start()
     {

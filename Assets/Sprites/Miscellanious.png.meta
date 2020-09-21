@@ -20,6 +20,21 @@ TextureImporter:
   - first:
       213: 3571583083325042024
     second: Miscellanious_5
+  - first:
+      213: -7867652886128266318
+    second: Miscellanious_0
+  - first:
+      213: 397651465293119085
+    second: Miscellanious_1
+  - first:
+      213: -1032838560017764482
+    second: Miscellanious_2
+  - first:
+      213: -3998281764757398315
+    second: Miscellanious_3
+  - first:
+      213: 7084636679532248575
+    second: Miscellanious_6
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -118,8 +133,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8107e5d4e1c5a8950800000000000000
-      internalID: 6452070701378465816
+      spriteID: 2b37f3a726b70d290800000000000000
+      internalID: -7867652886128266318
       vertices: []
       indices: 
       edges: []
@@ -139,8 +154,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e993a98dafe1eb40800000000000000
-      internalID: 5467914951222073831
+      spriteID: d6eb53d96edb48500800000000000000
+      internalID: 397651465293119085
       vertices: []
       indices: 
       edges: []
@@ -160,8 +175,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c08f82c094d31e8b0800000000000000
-      internalID: -5124747517024995316
+      spriteID: e7fa0d74dce9aa1f0800000000000000
+      internalID: -1032838560017764482
       vertices: []
       indices: 
       edges: []
@@ -171,18 +186,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 154
-        y: 0
-        width: 0
-        height: 0
+        y: 54
+        width: 76
+        height: 20
       alignment: 0
-      pivot: {x: 1.3e-44, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 54481b46bae47f8a0800000000000000
-      internalID: -6271457458054396859
+      spriteID: 5dc96b33bef3388c0800000000000000
+      internalID: -3998281764757398315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miscellanious_4
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 130
+        width: 28
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7728a0755a5858b10800000000000000
+      internalID: 1983138156102976119
       vertices: []
       indices: 
       edges: []
@@ -190,7 +226,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: da0868e9a62ad4307a0a3452713f601e
     internalID: 0
     vertices: []
     indices: 

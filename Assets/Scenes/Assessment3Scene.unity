@@ -535,6 +535,7 @@ GameObject:
   - component: {fileID: 944954414}
   - component: {fileID: 944954413}
   - component: {fileID: 944954416}
+  - component: {fileID: 944954417}
   m_Layer: 0
   m_Name: Pac-man
   m_TagString: Untagged
@@ -638,7 +639,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 045b7ce17e92d45f2b96d2ecd1dc62dc, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -722,6 +723,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &944954417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944954412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8012b1766fe04860be9e97f58a5aa8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &993849527
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,7 +1132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c13ff4b7a1d764fb5bdf5b79cf8e878d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newSound: {fileID: 0}
+  newSound: {fileID: 8300000, guid: 7bd84001470824b93abedee9256ae8dc, type: 3}
 --- !u!1 &1493087327
 GameObject:
   m_ObjectHideFlags: 0
